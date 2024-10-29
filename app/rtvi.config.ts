@@ -5,10 +5,6 @@ export const defaultConfig = [
 		service: "llm",
 		options: [
 			{
-				name: "model",
-				value: "claude-3-5-sonnet-20240620",
-			},
-			{
 				name: "initial_messages",
 				value: [
 					{
