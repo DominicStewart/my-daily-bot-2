@@ -56,13 +56,16 @@ export default function Home() {
 		) as LLMHelper;
 
 		llmHelper.handleFunctionCall(async (fn: FunctionCallParams) => {
-			console.log(fn);
+			console.log("++++ handle function call", fn);
 			const args = fn.arguments as any;
+			console.log("++++ args", args);
 			if (fn.functionName === "get_current_weather" && args.location) {
 				const response = await fetch(
 					`/api/weather?location=${encodeURIComponent(args.location)}`
 				);
+				console.log("++++ response", response);
 				const json = await response.json();
+				console.log("++++ json", json);
 				return json;
 			} else {
 				return { error: "couldn't fetch weather" };
